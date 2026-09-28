@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Women Who Lift is a public data project exploring women's strength training, health, body composition, and supplement use." />
+    <title>Women Who Lift · A strength-training data project</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Women Who Lift home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span class="brand-copy">Women <em>Who</em> Lift</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#project">Project</a>
+        <a href="#data">Data plan</a>
+        <a href="#methods">Methods</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> A public data project · research setup</p>
+          <h1 id="hero-title">Strength training deserves better questions.</h1>
+          <p class="hero-lede">Women Who Lift explores how women train, how strength shows up in the body, and what we can learn from public health data without reducing anyone to a number.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#project">See the first question <span aria-hidden="true">↘</span></a>
+            <a class="button button-quiet" href="https://wwwn.cdc.gov/nchs/nhanes/default.Aspx" target="_blank" rel="noreferrer">Open NHANES documentation <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <aside class="question-card" aria-label="The first research question">
+          <div class="card-topline"><span>01</span><span>the first question</span></div>
+          <p class="question-mark">“</p>
+          <p class="question-text">Among adult women, how is the frequency of muscle-strengthening activity associated with grip strength, body composition, diet, and supplement use?</p>
+          <div class="question-footer"><span class="mini-line"></span><span>NHANES 2011–2012</span></div>
+        </aside>
+      </section>
+
+      <section class="signal-row" aria-label="Project snapshot">
+        <div class="signal"><strong>01</strong><span>primary survey cycle</span></div>
+        <div class="signal"><strong>05</strong><span>core data files</span></div>
+        <div class="signal"><strong>00</strong><span>identities collected</span></div>
+        <div class="signal signal-status"><span class="status-dot" aria-hidden="true"></span><span>building the foundation</span></div>
+      </section>
+
+      <section class="section project-section" id="project" aria-labelledby="project-title">
+        <div class="section-kicker">Why this project</div>
+        <div class="section-heading">
+          <h2 id="project-title">A better view of the women who train.</h2>
+          <p>Strength training is often discussed through elite athletes, before-and-after photos, or generic fitness advice. This project starts somewhere quieter: with a nationally representative public-health survey and questions that leave room for complexity.</p>
+        </div>
+        <div class="principles">
+          <article class="principle-card principle-accent"><span class="card-number">01</span><h3>Measure participation</h3><p>How often do women report doing activities designed to strengthen their muscles?</p></article>
+          <article class="principle-card"><span class="card-number">02</span><h3>Look past a single metric</h3><p>Compare training frequency with measured grip strength and body-composition variables.</p></article>
+          <article class="principle-card"><span class="card-number">03</span><h3>Keep the caveats visible</h3><p>Show what the survey can tell us—and what it cannot say about programs, gyms, or causation.</p></article>
+        </div>
+      </section>
+
+      <section class="section data-section" id="data" aria-labelledby="data-title">
+        <div class="section-kicker">The data plan</div>
+        <div class="section-heading data-heading"><div><h2 id="data-title">One survey. Five lenses.</h2></div><p>We are starting with one NHANES cycle so the first release stays understandable, reproducible, and honest. The site can expand to additional cycles after the foundation is sound.</p></div>
+        <div class="data-grid">
+          <article class="data-card data-card-wide"><div class="data-icon icon-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><p class="data-code">PAQ_G · PAD440 / PAD460</p><h3>Muscle-strengthening activity</h3><p>Whether a participant did muscle-strengthening activities in the past 30 days, plus reported frequency.</p></div></article>
+          <article class="data-card"><div class="data-icon icon-grip" aria-hidden="true">◌</div><p class="data-code">MGX_G</p><h3>Measured grip strength</h3><p>A physical measurement that gives the analysis a real-world strength signal.</p></article>
+          <article class="data-card"><div class="data-icon icon-body" aria-hidden="true">◐</div><p class="data-code">DXX_G</p><h3>Body composition</h3><p>Whole-body DXA measurements for a more careful view than BMI alone.</p></article>
+          <article class="data-card data-card-wide"><div class="data-icon icon-capsule" aria-hidden="true"><span></span></div><div><p class="data-code">DSQIDS_G · DSQTOT_G</p><h3>Dietary supplements</h3><p>Reported supplement use and nutrient totals, creating an optional bridge to the project’s original FDA direction.</p></div></article>
+        </div>
+      </section>
+
+      <section class="section next-section" aria-labelledby="next-title">
+        <div class="section-kicker">What comes next</div>
+        <div class="next-layout"><div><h2 id="next-title">Build the evidence in public.</h2><p class="next-lede">The first version is a foundation, not a verdict. Each step will make the choices visible so the project can be improved instead of hidden behind polished charts.</p></div><ol class="timeline"><li class="timeline-current"><span class="timeline-marker">01</span><div><strong>Define the analysis</strong><p>Choose variables, populations, and careful language.</p></div></li><li><span class="timeline-marker">02</span><div><strong>Prepare the files</strong><p>Download, document, clean, and join the public data.</p></div></li><li><span class="timeline-marker">03</span><div><strong>Publish the findings</strong><p>Turn the results into readable charts and notes.</p></div></li></ol></div>
+      </section>
+
+      <section class="section methods-section" id="methods" aria-labelledby="methods-title">
+        <div class="section-kicker">Methods, in plain language</div>
+        <div class="methods-layout"><div><h2 id="methods-title">What this project will—and will not—claim.</h2><p>NHANES can help us study patterns among women who report strength-training activity. It cannot identify bodybuilding programs, specific gyms, training quality, or the full lived experience of women who lift.</p></div><div class="method-notes"><details open><summary>Population</summary><p>The analysis will focus on adult female participants as coded by the source dataset. We will preserve the dataset’s own demographic definitions rather than inventing new ones.</p></details><details><summary>Association, not causation</summary><p>A relationship between training frequency and another measure does not prove that one caused the other. Survey weights and design variables will be used where appropriate.</p></details><details><summary>Privacy by default</summary><p>This project uses public, de-identified data. It will not collect names, gym locations, contact details, or personal training logs.</p></details></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Women <em>Who</em> Lift</span></div><p>Public data, careful questions, stronger stories.</p><a href="#top">Back to top ↑</a></footer>
+  </body>
+</html>
