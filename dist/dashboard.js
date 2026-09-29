@@ -33,19 +33,19 @@ function renderStats(current) {
 
 function renderCharts(current) {
   const yearly = Object.entries(current.reduce((groups, row) => { (groups[row.year] ||= []).push(row); return groups; }, {})).sort((a, b) => Number(a[0]) - Number(b[0])).map(([year, values]) => ({ year, value: values.length }));
-  renderChart("dashboardYearChart", lineChart(yearly, { label: "Filtered records over time", color: "#8b2942", format: (value) => formatNumber(value) }));
+  renderChart("dashboardYearChart", lineChart(yearly, { label: "Filtered competition entries over time", color: "#8b2942", format: (value) => formatNumber(value) }));
   setText("yearChartLabel", yearly.length ? `${yearly[0].year}–${yearly[yearly.length - 1].year}` : "no matching years");
 
   const equipment = Object.entries(current.reduce((groups, row) => { const value = numberValue(row.totalKg); if (value !== null && value > 0) (groups[row.equipment || "Unknown"] ||= []).push(value); return groups; }, {})).map(([label, values]) => ({ label, value: median(values) })).sort((a, b) => b.value - a.value);
-  renderChart("dashboardEquipmentChart", barChart(equipment, { width: 600, label: "Median total by equipment", format: (value) => `${formatNumber(value, 0)} kg`, color: "#7a9b68" }));
+  renderChart("dashboardEquipmentChart", barChart(equipment, { width: 600, label: "Middle recorded total by support category", format: (value) => `${formatNumber(value, 0)} kg`, color: "#7a9b68" }));
 
   const federations = Object.entries(current.reduce((groups, row) => { const key = row.federation || "Unknown"; groups[key] = (groups[key] || 0) + 1; return groups; }, {})).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([label, value]) => ({ label, value }));
-  renderChart("dashboardFederationChart", barChart(federations, { width: 600, label: "Top federations by record count", format: (value) => formatNumber(value), color: "#315b45" }));
+  renderChart("dashboardFederationChart", barChart(federations, { width: 600, label: "Most common organizing bodies", format: (value) => formatNumber(value), color: "#315b45" }));
 }
 
 function renderTable(current) {
   const records = current.filter((row) => numberValue(row.totalKg) !== null).sort((a, b) => numberValue(b.totalKg) - numberValue(a.totalKg)).slice(0, 12);
-  el("recordsTable").innerHTML = records.length ? records.map((row) => `<tr><td class="mono">${escapeHtml(row.athleteId)}</td><td>${escapeHtml(row.date)}</td><td><strong>${escapeHtml(formatNumber(numberValue(row.totalKg), 1))}</strong></td><td>${escapeHtml(formatNumber(numberValue(row.dots), 1))}</td><td>${escapeHtml(row.event)}</td><td>${escapeHtml(row.equipment)}</td><td>${escapeHtml(row.federation)}</td><td class="meet-cell">${escapeHtml(row.meetName)}</td></tr>`).join("") : `<tr><td colspan="8">No records match these filters.</td></tr>`;
+  el("recordsTable").innerHTML = records.length ? records.map((row) => { const dots = numberValue(row.dots); return `<tr><td class="mono">${escapeHtml(row.athleteId)}</td><td>${escapeHtml(row.date)}</td><td><strong>${escapeHtml(formatNumber(numberValue(row.totalKg), 1))}</strong></td><td>${escapeHtml(formatNumber(dots > 0 ? dots : null, 1))}</td><td>${escapeHtml(row.event)}</td><td>${escapeHtml(row.equipment)}</td><td>${escapeHtml(row.federation)}</td><td class="meet-cell">${escapeHtml(row.meetName)}</td></tr>`; }).join("") : `<tr><td colspan="8">No records match these filters.</td></tr>`;
 }
 
 function renderChart(id, svg) { if (el(id)) el(id).innerHTML = svg; }

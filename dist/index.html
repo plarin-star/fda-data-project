@@ -19,7 +19,7 @@
       <section class="report-hero shell">
         <div class="eyebrow">Women’s strength records · public data analysis</div>
         <h1>Who lifts, how much, and what changes across time?</h1>
-        <p class="lede">A women-only analysis of powerlifting meet records from 1975–2026. Scroll through the findings, then use the dashboard to filter the records in your browser.</p>
+        <p class="lede">A women-only analysis of powerlifting competition records from 1975–2026. If powerlifting is new to you, start with the quick guide below, then use the dashboard to explore the numbers in your browser.</p>
         <div class="hero-meta"><span class="tag">105K+ records</span><span class="tag">51 years</span><span class="tag">16K+ meets</span><a class="text-link" href="./dashboard.html">Open the dashboard →</a></div>
       </section>
 
@@ -33,22 +33,33 @@
         </div>
       </section>
 
+      <section class="explainer shell" aria-labelledby="guide-title">
+        <div class="section-label">New to powerlifting?</div>
+        <div class="explainer-heading"><div><h2 id="guide-title">Here’s how to read the numbers.</h2></div><p>This is competition data, not a survey of every woman who strength trains. The same athlete can appear more than once because she may compete at several meets over time.</p></div>
+        <div class="explainer-grid">
+          <article><span class="explainer-number">01</span><h3>One row = one competition entry</h3><p>Each row describes one woman lifting at one competition on one date.</p></article>
+          <article><span class="explainer-number">02</span><h3>“Total” means the lifts added together</h3><p>For a three-lift meet, the total is her best successful squat, bench press, and deadlift, measured in kilograms.</p></article>
+          <article><span class="explainer-number">03</span><h3>Event codes describe the lifts</h3><p><strong>SBD</strong> means squat, bench press, and deadlift. Other codes represent one lift or a smaller combination.</p></article>
+          <article><span class="explainer-number">04</span><h3>Support and organizers are categories</h3><p>Equipment describes supportive gear such as wraps or a lifting suit. A federation is the organization running or recording the competition—not a country.</p></article>
+        </div>
+      </section>
+
       <section class="finding shell" aria-labelledby="finding-one-title">
         <div class="finding-index">01 / 03</div>
         <div class="finding-copy"><div class="section-label">Finding one · scale over time</div><h2 id="finding-one-title">The women’s record is broad—and still growing.</h2><p>The prepared analysis contains <strong id="findingRows">—</strong> women’s meet records across <strong id="findingYears">—</strong> years. The yearly series shows the number of records available in the balanced analysis slice, not a population estimate.</p><p class="source-note">The source archive contains more than four million total rows. This site uses a deterministic women-only slice capped per year so the browser dashboard stays fast.</p></div>
-        <figure class="chart-card"><figcaption><strong>Median total by year</strong><span>kilograms · filtered analysis slice</span></figcaption><div class="chart" id="yearChart" role="img" aria-label="Line chart showing median powerlifting total by year">Loading chart…</div></figure>
+        <figure class="chart-card"><figcaption><strong>Middle recorded total by year</strong><span>kilograms · middle value in each year</span></figcaption><div class="chart" id="yearChart" role="img" aria-label="Line chart showing the middle recorded total by year">Loading chart…</div></figure>
       </section>
 
       <section class="finding finding-reverse shell" aria-labelledby="finding-two-title">
         <div class="finding-index">02 / 03</div>
-        <div class="finding-copy"><div class="section-label">Finding two · event context</div><h2 id="finding-two-title">“A total” depends on what happened at the meet.</h2><p>The records mix full powerlifting meets with single-lift events. A full <strong>SBD</strong> total is not directly comparable to a bench-only or deadlift-only entry, so the report keeps event type visible instead of flattening everything into one leaderboard.</p><p class="source-note">Use the dashboard’s Event filter to compare like with like.</p></div>
-        <figure class="chart-card"><figcaption><strong>Event mix</strong><span>records by event code</span></figcaption><div class="chart" id="eventChart" role="img" aria-label="Bar chart showing records by powerlifting event">Loading chart…</div></figure>
+        <div class="finding-copy"><div class="section-label">Finding two · event context</div><h2 id="finding-two-title">A three-lift total is not the same as one lift.</h2><p>The archive includes full competitions and single-lift events. A full <strong>SBD</strong> result includes squat, bench press, and deadlift, while a bench-only result measures just one lift.</p><p class="source-note">Use “Full meets · SBD” in the dashboard when you want the clearest apples-to-apples comparison.</p></div>
+        <figure class="chart-card"><figcaption><strong>Competition entries by lifts included</strong><span>number of entries</span></figcaption><div class="chart" id="eventChart" role="img" aria-label="Bar chart showing competition entries by the lifts included">Loading chart…</div></figure>
       </section>
 
       <section class="finding shell" aria-labelledby="finding-three-title">
         <div class="finding-index">03 / 03</div>
-        <div class="finding-copy"><div class="section-label">Finding three · equipment matters</div><h2 id="finding-three-title">The equipment category changes the story.</h2><p>Raw, single-ply, multi-ply, wraps, and unlimited records appear together in the source. The median total differs by equipment category, which is why this analysis treats equipment as a core filter rather than an afterthought.</p><p class="source-note">A higher total in one category should not be read as a simple ranking of athletes or federations.</p></div>
-        <figure class="chart-card"><figcaption><strong>Median total by equipment</strong><span>kilograms · rows with a recorded total</span></figcaption><div class="chart" id="equipmentChart" role="img" aria-label="Bar chart showing median total by equipment category">Loading chart…</div></figure>
+        <div class="finding-copy"><div class="section-label">Finding three · equipment matters</div><h2 id="finding-three-title">Supportive gear changes the comparison.</h2><p>Some competitors lift with little supportive equipment, while others use wraps, lifting suits, or more supportive gear. Those categories appear together in the archive, but they should not be treated as one universal leaderboard.</p><p class="source-note">The dashboard lets you compare one support category at a time.</p></div>
+        <figure class="chart-card"><figcaption><strong>Middle recorded total by support category</strong><span>kilograms · rows with a recorded total</span></figcaption><div class="chart" id="equipmentChart" role="img" aria-label="Bar chart showing the middle recorded total by support category">Loading chart…</div></figure>
       </section>
 
       <section class="dashboard-cta shell" aria-labelledby="dashboard-title">

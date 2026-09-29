@@ -15,7 +15,7 @@ async function render() {
 
   renderChart("yearChart", lineChart(summary.yearly.map((item) => ({ year: item.year, value: item.medianTotalKg })), { label: "Median total by year in kilograms", color: "#8b2942", format: (value) => `${formatNumber(value, 0)} kg` }));
   const eventItems = Object.entries(summary.categories.event).sort((a, b) => b[1] - a[1]).map(([label, value]) => ({ label, value }));
-  renderChart("eventChart", barChart(eventItems, { label: "Records by event code", color: "#315b45", format: (value) => formatNumber(value) }));
+  renderChart("eventChart", barChart(eventItems, { label: "Competition entries by lifts included", color: "#315b45", format: (value) => formatNumber(value) }));
 
   const rows = await loadRows();
   const equipmentGroups = Object.entries(rows.reduce((groups, row) => {
@@ -26,7 +26,7 @@ async function render() {
     return groups;
   }, {}));
   const equipmentItems = equipmentGroups.map(([label, values]) => ({ label, value: median(values) })).sort((a, b) => b.value - a.value);
-  renderChart("equipmentChart", barChart(equipmentItems, { label: "Median total by equipment", color: "#7a9b68", format: (value) => `${formatNumber(value, 0)} kg` }));
+  renderChart("equipmentChart", barChart(equipmentItems, { label: "Middle recorded total by support category", color: "#7a9b68", format: (value) => `${formatNumber(value, 0)} kg` }));
 }
 
 render().catch((error) => {
