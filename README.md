@@ -1,25 +1,31 @@
-# FDA Data Project
+# Women Who Lift
 
-A general-purpose workspace for exploring, analyzing, and documenting FDA-related datasets.
+An interactive data website exploring women’s powerlifting meet records across time, events, equipment categories, and federations.
 
-## Project status
+## What is included
 
-This project is in the initial setup stage. The dataset, research questions, and final scope will be determined later.
+- A scrollable report page with findings, summary statistics, and charts.
+- A browser dashboard with year, event, equipment, federation, and age-class filters.
+- Quick views for all records, full powerlifting meets, raw SBD records, and recent years.
+- A prepared women-only analysis slice with 105,491 meet records, 56,921 anonymous athlete IDs, 51 years, and 16,605 meets represented.
+- Stable anonymous athlete IDs instead of publishing lifter names.
 
-## Goals
+## Data
 
-- Identify and evaluate a suitable FDA dataset.
-- Document the dataset source, fields, limitations, and usage requirements.
-- Build reproducible analysis and supporting documentation.
-- Share useful findings through clear summaries and visualizations.
+The source is the public [OpenPowerlifting bulk CSV archive](https://openpowerlifting.gitlab.io/opl-csv/bulk-csv.html). One row represents one female lifter in one competition. The prepared file is stored at `dist/data/women-powerlifting.csv`, with summary metadata in `dist/data/summary.json`.
 
-## Repository structure
+The browser dataset is a deterministic, year-balanced sample capped at 2,500 women’s records per year. This keeps the public dashboard responsive while preserving repeated time periods, groups, categorical dimensions, and numeric measures required by the project brief. Names are replaced with stable IDs during preparation.
 
-The repository is intentionally minimal for now. Folders for data, analysis, documentation, and outputs will be added as the project develops.
+## Run locally
 
-## Data and security notes
+Serve the `dist` folder with any static web server and open `index.html`. For example:
 
-- Record the source and access date for any dataset used.
-- Review licensing and usage requirements before sharing data or results.
-- Do not commit passwords, API keys, or other sensitive information.
+```text
+python -m http.server 4173 --directory dist
+```
 
+The site is designed for GitHub Pages and deploys from the `dist` folder through the workflow in `.github/workflows/pages.yml`.
+
+## Notes and limitations
+
+Competition records do not represent every woman who strength trains. Totals vary by event type, equipment, federation, and meet context, so comparisons should be made within a clearly defined slice.

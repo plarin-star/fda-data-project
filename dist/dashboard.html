@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Filter and explore the Women Who Lift women’s powerlifting record dataset." />
+    <title>Women Who Lift · Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="dashboard-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell"><a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Women <em>Who</em> Lift</span></a><nav aria-label="Primary navigation"><a href="./index.html">Report</a><a class="active" href="./dashboard.html">Dashboard <span aria-hidden="true">↗</span></a></nav></header>
+
+    <main id="main" class="shell dashboard-main">
+      <div class="dashboard-heading"><div><div class="section-label">Interactive browser dashboard</div><h1>Filter the women’s records.</h1><p>Every result below is calculated from the prepared 105K+ row dataset in your browser.</p></div><a class="button button-light" href="./index.html">← Read the report</a></div>
+      <div class="dashboard-status" id="dashboardStatus" role="status">Loading the dataset…</div>
+
+      <section class="controls-panel" aria-labelledby="controls-title"><div class="controls-heading"><div><div class="section-label">Controls</div><h2 id="controls-title">Make a slice.</h2></div><button class="button button-small" id="resetFilters" type="button">Reset filters</button></div><div class="controls-grid"><label>From year<select id="yearFrom" data-filter="yearFrom"><option value="">Any year</option></select></label><label>To year<select id="yearTo" data-filter="yearTo"><option value="">Any year</option></select></label><label>Event<select id="eventFilter" data-filter="event"><option value="">All events</option></select></label><label>Equipment<select id="equipmentFilter" data-filter="equipment"><option value="">All equipment</option></select></label><label>Federation<select id="federationFilter" data-filter="federation"><option value="">All federations</option></select></label><label>Age class<select id="ageFilter" data-filter="ageClass"><option value="">All ages</option></select></label></div><div class="quick-filters" aria-label="Quick views"><span>Quick views</span><button class="chip-button active" type="button" data-preset="all">All records</button><button class="chip-button" type="button" data-preset="full">Full meets · SBD</button><button class="chip-button" type="button" data-preset="raw">SBD · Raw</button><button class="chip-button" type="button" data-preset="recent">2015–2026</button></div></section>
+
+      <section aria-labelledby="results-title"><div class="results-heading"><div><div class="section-label">Current slice</div><h2 id="results-title">The numbers move with you.</h2></div><p id="filterSummary">All records</p></div><div class="metric-grid dashboard-metrics"><article class="metric-card"><span class="metric-label">records</span><strong id="resultRecords">—</strong><span class="metric-note">meet entries</span></article><article class="metric-card metric-card-coral"><span class="metric-label">athletes</span><strong id="resultAthletes">—</strong><span class="metric-note">anonymous IDs</span></article><article class="metric-card metric-card-gold"><span class="metric-label">median total</span><strong id="resultMedian">—</strong><span class="metric-note">kilograms</span></article><article class="metric-card metric-card-mint"><span class="metric-label">best total</span><strong id="resultBest">—</strong><span class="metric-note">kilograms</span></article></div></section>
+
+      <section class="dashboard-charts" aria-label="Filtered charts"><figure class="chart-card chart-card-large"><figcaption><strong>Records over time</strong><span id="yearChartLabel">all years</span></figcaption><div class="chart" id="dashboardYearChart">Loading chart…</div></figure><figure class="chart-card"><figcaption><strong>Median total by equipment</strong><span>kilograms</span></figcaption><div class="chart" id="dashboardEquipmentChart">Loading chart…</div></figure><figure class="chart-card"><figcaption><strong>Top federations in slice</strong><span>record count</span></figcaption><div class="chart" id="dashboardFederationChart">Loading chart…</div></figure></section>
+
+      <section class="table-section" aria-labelledby="table-title"><div class="results-heading"><div><div class="section-label">Record detail</div><h2 id="table-title">Largest totals in the slice.</h2></div><p>Anonymous athlete IDs keep the table useful without publishing names.</p></div><div class="table-wrap"><table><thead><tr><th scope="col">Athlete</th><th scope="col">Date</th><th scope="col">Total kg</th><th scope="col">Dots</th><th scope="col">Event</th><th scope="col">Equipment</th><th scope="col">Federation</th><th scope="col">Meet</th></tr></thead><tbody id="recordsTable"><tr><td colspan="8">Loading records…</td></tr></tbody></table></div></section>
+    </main>
+    <footer class="site-footer shell"><span>Women <em>Who</em> Lift · dashboard</span><span>Filters run locally in your browser.</span><a href="#main">Back to top ↑</a></footer>
+    <script type="module" src="./dashboard.js"></script>
+  </body>
+</html>
